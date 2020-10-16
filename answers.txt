@@ -1,0 +1,48 @@
+
+Q6:
+git show head
+commit 9aaa53bbf94ed3210807b7602df9a033e702e444 (HEAD -> main)
+Author: jordialfonsop <jordialfonsop@gmail.com>
+Date:   Fri Oct 16 11:58:26 2020 +0200
+
+    Wrongly_Modified_README
+
+diff --git a/README.md.txt b/README.md.txt
+index 234c1d9..4c93832 100644
+--- a/README.md.txt
++++ b/README.md.txt
+@@ -1,3 +1,3 @@
+-ayooooo what's up
++oooooh noooooo! wrong lineee!!! :(
+
+ how are you?
+\ No newline at end of file
+
+This describes that the first line has been modified.
+
+Q7:
+git show HEAD
+commit a29c491bf4dce480e56adc622461606873d92b94 (HEAD -> main)
+Author: jordialfonsop <jordialfonsop@gmail.com>
+Date:   Fri Oct 16 12:45:41 2020 +0200
+
+    Nvm_bruh_here's_the_good_one
+
+diff --git a/README.md.txt b/README.md.txt
+index 4c93832..234c1d9 100644
+--- a/README.md.txt
++++ b/README.md.txt
+@@ -1,3 +1,3 @@
+-oooooh noooooo! wrong lineee!!! :(
++ayooooo what's up
+
+ how are you?
+\ No newline at end of file
+
+We changed the last commit with a new one that restores the file to the point before writing the wrong line.
+
+Q8:
+We are in the branch main and there's 2 branches: main and documents.
+
+Q9:
+On "main" we can see the lines we had before while on "documents" we can see the new line that we just wrote
