@@ -101,3 +101,15 @@ We are in the branch main and there's 2 branches: main and documents.
 
 Q9:
 On "main" we can see the lines we had before while on "documents" we can see the new line that we just wrote
+
+Q10:
+There has been conflicts using the first command:
+
+git merge documents
+CONFLICT (add/add): Merge conflict in answers.txt
+Auto-merging answers.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+We can solve these conflicts by opening an IDE and accept the changes to the documents, so we can merge the files safely.
+
+Q11: We are in the main branch, the only branch available.
