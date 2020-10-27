@@ -11,12 +11,14 @@ public class Program {
     public Program(String name){
         programName = name;
         currentLine = 0;
-        loopIteration = 1;
+        loopIteration = 0;
         instructions = new LinkedList<Instruction>();
     }
+
     public String getName(){
         return programName;
     }
+
     private void goToStartLoop(){
         currentLine = 0;
         Instruction i = instructions.get(currentLine);
@@ -24,23 +26,51 @@ public class Program {
             i=getNextInstruction();
         }
     }
+
     public Instruction getNextInstruction(){
         currentLine++;
-        loopIteration++;
-        return null;
-    } //NO ACABAT
+        return instructions.get(currentLine);
+    }
+
     public boolean addInstruction(String c, double p){
         Instruction i = new Instruction(c,p);
         instructions.add(i);
         return i.isCorrect();
     }
+
     public boolean hasFinished(){
-        return ((instructions.get(currentLine).getCode().equals("END") && (instructions.size() == loopIteration)));
+        return (currentLine >= instructions.size()-1);
     }
+
     public void restart(){
         currentLine = 0;
-        loopIteration = 1;
+        loopIteration = 0;
+        Instruction i = instructions.get(currentLine);
+        int size = instructions.size();
+        LinkedList<Instruction> temp = new LinkedList<Instruction>();
+        while (currentLine < size-1) {
+            if (i.isRepInstruction()) {
+                loopIteration = (int) i.getParam();
+                while (loopIteration > 0) {
+                    i = getNextInstruction();
+                    while ((!i.isRepInstruction())) {
+                        temp.add(i);
+                        i = getNextInstruction();
+
+                    }
+                    loopIteration--;
+                    if (loopIteration > 0) {
+                        goToStartLoop();
+                    }
+                }
+
+            }
+        }
+        currentLine = -1;
+        loopIteration = 0;
+        instructions = temp;
     }
+
     public boolean isCorrect(){
         while (!hasFinished()){
             if(!instructions.get(currentLine).isCorrect()){
@@ -49,12 +79,9 @@ public class Program {
             }
             getNextInstruction();
         }
-        if (!instructions.getLast().getCode().equals("END")){
-            System.out.println("Last instruction is not END");
-            return false;
-        }
         return true;
     }
+
     public void printErrors(){
         switch(instructions.get(currentLine).errorCode()){
             case 1:
