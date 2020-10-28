@@ -64,7 +64,10 @@ public class Program {
                     }
                 }
 
+            }else{
+                temp.add(i);
             }
+
         }
         currentLine = -1;
         loopIteration = 0;
