@@ -1,0 +1,18 @@
+Grade for OOP Seminar 3. 
+ 
+ Max grade: 10pt 
+ 
+Total grade: 6.5
+
+Relations(5pt): 2.9
+
+Cardinality(1pt): 0
+
+Attributes(1,5pt): 1.4
+
+Methods(1,5pt): 1.2
+
+Types(0,5 pt): 0.5
+
+Visibility (0,5 pt): 0.5
+
